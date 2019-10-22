@@ -13,19 +13,19 @@
 сделай панорамный снимок|Command
 если за окном рассвет открой шторы|Command
 ```
-1. Make metadata file
-python -m process_all_swbd_data
-2. Make embeddings (you may use your own embeddings - just put it in the folder `embeddings` and change script if name of your file does not correspond to template)
-python -m generate_embeddings word2vec_ar100_dim.txt
-3. Split all_text into train, val, test
-python -m split_all_text
-4. Generate pkls for subsets
-python -m process_batch_swbd_data test
-python -m process_batch_swbd_data train
-python -m process_batch_swbd_data val
-3. Train
-python -m da_lstm
-4. Observe beautiful picture
+1. Make metadata file  
+`ython -m process_all_swbd_data`  
+2. Make embeddings (you may use your own embeddings - just put it in the folder `embeddings` and change script if name of your file does not correspond to template)  
+`python -m generate_embeddings word2vec_ar100_dim.txt`  
+3. Split all_text into train, val, test  
+`python -m split_all_text`  
+4. Generate pkls for subsets  
+`python -m process_batch_swbd_data test`  
+`python -m process_batch_swbd_data train`  
+`python -m process_batch_swbd_data val`  
+3. Train  
+`python -m da_lstm`  
+4. Observe beautiful picture  
 ![](https://github.com/zeionara/rnnda/raw/master/accuracy.png)
 
 ## Overview
