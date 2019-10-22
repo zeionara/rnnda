@@ -5,19 +5,19 @@ from gensim.models import Word2Vec
 from utilities import *
 
 batch_name = 'all'
-resource_dir = 'data/'
+resource_dir = 'viot_data/'
 embeddings_dir = "embeddings/"
 text_file_path = resource_dir + "all_text.txt"
-corpus = CorpusReader('switchboard_data/')
+# corpus = CorpusReader('switchboard_data/')
 
 # Excluded dialogue act tags
 excluded_tags = ['x', '+']
 
 # Dimension for switchboard embeddings
-embedding_dimension = 300
+embedding_dimension = 100
 
 # Process switchboard csv's
-process_batch_to_txt_file(corpus, resource_dir, batch_name, excluded_tags=excluded_tags)
+# process_batch_to_txt_file(corpus, resource_dir, batch_name, excluded_tags=excluded_tags)
 
 print("Processing file: ", text_file_path)
 text_data = read_file(text_file_path)

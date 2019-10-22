@@ -1,9 +1,10 @@
 from gensim.models import KeyedVectors
 from utilities import *
+import sys
 
-resource_dir = 'data/'
+resource_dir = 'viot_data/'
 embeddings_dir = "embeddings/"
-embedding_filename = 'word2vec_swda_300dim.txt'
+embedding_filename = sys.argv[-1]#'word2vec_swda100_dim.txt'
 embeddings_path = embeddings_dir + embedding_filename
 
 # Load metadata

@@ -258,8 +258,8 @@ def plot_history(history, title='History'):
 
     # Plot accuracy
     acc = fig.add_subplot(121)
-    acc.plot(history['acc'])
-    acc.plot(history['val_acc'])
+    acc.plot(history['accuracy'])
+    acc.plot(history['val_accuracy'])
     acc.set_ylabel('Accuracy')
     acc.set_xlabel('Epoch')
 

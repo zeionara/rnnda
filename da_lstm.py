@@ -9,15 +9,16 @@ from keras import Sequential
 from keras.layers import LSTM, TimeDistributed, Dense, GlobalMaxPooling1D, Embedding
 from keras.optimizers import RMSprop
 
-resource_dir = 'data/'
+resource_dir = 'viot_data/'
 embeddings_dir = "embeddings/"
-embedding_filename = 'word2vec_GoogleNews'
+embedding_filename = "word2vec_ar100"#'word2vec_GoogleNews'
 model_dir = 'models/'
-model_name = "Embeddings Model"
+model_name = "embeddings-model-new"
 
 # Load metadata
 metadata = load_data(resource_dir + "metadata.pkl")
-embeddings_dimension = 300
+embeddings_dimension = 100
+print(embeddings_dir + embedding_filename + '_' + str(embeddings_dimension) + 'dim.pkl')
 embeddings = load_data(embeddings_dir + embedding_filename + '_' + str(embeddings_dimension) + 'dim.pkl')
 
 # Load Training and test sets
@@ -82,7 +83,6 @@ save_data(model_dir + model_name + ' History.pkl', history.history)
 
 end_time = time.time()
 print("Training took " + str(('%.3f' % (end_time - start_time))) + " seconds for", num_epoch, "epochs")
-
 # Plot training accuracy  and loss
 fig = plot_history(history.history, model_name)
 fig.show()
@@ -117,5 +117,6 @@ val_matrix = generate_confusion_matrix(val_data, val_predictions, metadata, verb
 
 class_names = [class_name[0] for class_name in metadata['labels']]
 fig = plot_confusion_matrices(test_matrix, val_matrix, class_names, title_a='Test', title_b='Validation', matrix_size=5, normalize=True)
+plt.savefig("accuracy.png")
 fig.show()
 fig.savefig(model_dir + model_name + ' Confusion Matrix.png', transparent=True)
