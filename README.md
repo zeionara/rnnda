@@ -14,7 +14,7 @@
 если за окном рассвет открой шторы|Command
 ```
 1. Make metadata file  
-`ython -m process_all_swbd_data`  
+`python -m process_all_swbd_data`  
 2. Make embeddings (you may use your own embeddings - just put it in the folder `embeddings` and change script if name of your file does not correspond to template)  
 `python -m generate_embeddings word2vec_ar100_dim.txt`  
 3. Split all_text into train, val, test  
